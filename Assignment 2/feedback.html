@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Jam Coffee House Menu</title>
+    <link rel="shortcut icon" type="favicon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="javajam.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <header><h1>Java Jam Coffee House</h1></header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="menu.html">Menu</a>
+            <ul>
+              <li><a href="menu.html#cold_brew">Cold Brews</a></li>
+              <li><a href="menu.html#hot_brew">Hot Brews</a></li>
+            </ul>
+          </li>
+          <li><a href="music.html">Music</a></li>
+          <li><a href="jobs.html">Jobs</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+      <main>
+        <form method="GET">
+          <fieldset>
+            <label>How satisfied are you with the website</label>
+            <input type="range" min="1" max="10" name="range" />
+            <legend>Feedback</legend>
+            <label>Suggestions</label>
+            <textarea
+              placeholder="Enter your feedback or suggestions"
+            ></textarea>
+          </fieldset>
+          <input type="submit" value="Submit" />
+        </form>
+        <div class="contact-us">
+          <h2>Contact Us</h2>
+          (987)-123-5467
+        </div>
+      </main>
+      <footer>
+        <small
+          ><i
+            >Copyright &copy; JavaJam Coffee House <br />
+            <a href="mailto:gandhi.prad@norhteastern.edu"
+              >gandhi.prad@northeastern.edu</a
+            ></i
+          ></small
+        >
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Feedback</title>
+    <style>
+      label {
+        float: left;
+        width: 150px;
+      }
+      #container {
+        width: 500px;
+        margin: auto;
+        background-color: beige;
+      }
+      .form {
+        display: block;
+      }
+      table {
+        width: 80%;
+        margin-top: 20px;
+      }
+      table th {
+        background-color: #e0c85b;
+        color: black;
+        font-size: larger;
+      }
+      table tr,
+      th,
+      td {
+        padding: 15px;
+      }
+      main {
+        margin: auto;
+        padding: 50px;
+      }
+      #selected-drink-extra {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <main>
+        <h2>Feeback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+        Note : Fields marked with an asterisk(*) are mandatory
+        <br /><br />
+        <hr />
+        <form method="post" id="myForm" onsubmit="return formSubmit();">
+          <label>Title*:</label>
+          <input
+            type="radio"
+            name="title"
+            id="miss"
+            value="miss"
+            checked="true"
+            required="required"
+          />Miss
+          <input
+            type="radio"
+            name="title"
+            id="mr"
+            value="mr"
+            required="required"
+          />Mr.
+          <input
+            type="radio"
+            name="title"
+            id="mrs"
+            value="mrs"
+            required="required"
+          />Mrs. <br /><br />
+          <label for="firstName">First Name*:</label>
+          <input
+            onblur="formValidation(this, 1, 'FName')"
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+            required="true"
+          />
+          <div id="errorMsgFName" style="display: none; color: red">
+            Invalid input for your first name. Only text values permitted
+          </div>
+          <br /><br />
+
+          <label for="lastName">Last Name*:</label>
+          <input
+            onblur="formValidation(this, 1, 'LName')"
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+            required="true"
+          />
+          <div id="errorMsgLName" style="display: none; color: red">
+            Invalid input for your last name. Only text values permitted
+          </div>
+          <br /><br />
+
+          <label for="emailId">Email Id*:</label>
+          <input
+            onblur="formValidation(this, 2)"
+            type="text"
+            name="emailId"
+            id="emailId"
+            placeholder="yourname@domain.com"
+            required="true"
+          />
+          <div id="errorMsgEmailId" style="display: none; color: red">
+            Invalid input for your email id. Please enter email id in proper
+            format.
+          </div>
+          <br /><br />
+
+          <label for="phoneNumber">Phone Number*:</label>
+          <input
+            onblur="formValidation(this, 3)"
+            type="text"
+            name="phoneNumber"
+            id="phoneNumber"
+            placeholder="xxx-xxx-xxxx"
+            required="true"
+          />
+          <div id="errorMsgPhone" style="display: none; color: red">
+            Invalid input for your phone number. Only numeric values are
+            permitted and in the requested format xxx-xxx-xxxx
+          </div>
+          <br /><br />
+
+          <label for="zipcode">ZipCode*:</label>
+          <input
+            onblur="formValidation(this, 4)"
+            type="text"
+            name="zipcode"
+            id="zipcode"
+            placeholder="xxxxxx"
+            required="true"
+          />
+          <div id="errorMsgZipcode" style="display: none; color: red">
+            Invalid input for your Zipcode. Only numeric values are permitted
+            and in the requested format xxxxxx
+          </div>
+          <br /><br />
+
+          <label for="zipcode">How did you hear*:</label>
+          <input
+            type="checkbox"
+            checked="true"
+            name="source"
+            class="source"
+            value="facebook"
+          />
+          Facebook
+          <input type="checkbox" name="source" class="source" value="google" />
+          Google
+          <input type="checkbox" name="source" class="source" value="yelp" />
+          Yelp <br /><br />
+
+          <label for="drinks">Drinks*: </label>
+          <select name="drinks" id="drinks" onchange="drinkSelection()">
+            <option value="select">--Please select a drink--</option>
+            <option value="latte">Latte</option>
+            <option value="black_coffee">Black Coffee</option>
+            <option value="cappuccino">Cappuccino</option>
+            <option value="espresso">Espresso</option>
+            <option value="arabica">Arabica</option>
+          </select>
+          <br />
+          <br />
+          <div style="display: none" id="drinks_extra">
+            <label for="drinkextra">&nbsp;</label>
+
+            <input
+              type="checkbox"
+              id="selected_drinks_extra"
+              name="selected_drinks_extra"
+              onclick="isInputChecked(this)"
+            />
+            <label id="drinkextra"></label>
+            <br /><br />
+
+            <label for="checked-message-label">&nbsp;</label>
+
+            <textarea
+              style="display: none"
+              name="text"
+              id="checked-message"
+              placeholder="Add customisation, if any"
+              rows="5"
+              cols="25"
+              required="true"
+            ></textarea>
+            <br /><br />
+          </div>
+
+          <label for="comments">Comments*:</label>
+          <textarea
+            name="text"
+            id="comments"
+            placeholder="Your comments"
+            rows="5"
+            cols="25"
+          ></textarea>
+          <br /><br />
+          <input type="submit" name="Submit" />
+          <input type="Reset" />
+          <br /><br />
+        </form>
+      </main>
+    </div>
+
+    <table border="1" style=" margin: auto" id="myTable">
+      <tr>
+        <th>Title</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Zipcode</th>
+        <th>Contact</th>
+        <th>Drinks</th>
+        <th>Extra</th>
+        <th>Customisation</th>
+        <th>Comments</th>
+      </tr>
+      <tbody></tbody>
+    </table>
+
+    <script type="text/javascript" src="Form.js"></script>
+  </body>
+</html>
